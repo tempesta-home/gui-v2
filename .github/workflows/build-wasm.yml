@@ -94,6 +94,7 @@ jobs:
     - name: Check libegl stuff
       run: |
         ldd /opt/hostedtoolcache/Qt/6.6.1/gcc_64/bin/qsb
+        sudo dpkg -L libegl1
     - name: Build webassembly GUI
       run: |
         source "/opt/hostedtoolcache/emsdk/emsdk_env.sh"
