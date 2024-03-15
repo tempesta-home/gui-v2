@@ -91,6 +91,9 @@ jobs:
         ${QTDIR}/bin/qt-configure-module ..
         cmake --build .
         cmake --install . --prefix ${QTDIR} --verbose
+    - name: Test EGL
+      run: |
+        ldd /opt/hostedtoolcache/Qt/6.6.1/gcc_64/bin/qsb
     - name: Build webassembly GUI
       run: |
         source "/opt/hostedtoolcache/emsdk/emsdk_env.sh"
