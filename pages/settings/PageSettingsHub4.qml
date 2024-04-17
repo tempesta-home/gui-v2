@@ -191,10 +191,10 @@ Page {
 				&& essMode.value !== VenusOS.Ess_Hub4ModeState_Disabled
 				&& !maxChargeCurrentControl.isValid
 
-			onCheckedChanged: {
-				if (checked && maxChargePower.value < 0) {
+			onClicked: {
+				if (maxChargePower.value < 0) {
 					maxChargePower.dataItem.setValue(1000)
-				} else if (!checked && maxChargePower.value >= 0) {
+				} else if (maxChargePower.value >= 0) {
 					maxChargePower.dataItem.setValue(-1)
 				}
 			}
@@ -222,10 +222,10 @@ Page {
 				&& essMode.value !== VenusOS.Ess_Hub4ModeState_Disabled
 				&& batteryLifeState.dataItem.value !== VenusOS.Ess_BatteryLifeState_KeepCharged
 
-			onCheckedChanged: {
-				if (checked && maxDischargePower.value < 0) {
+			onClicked: {
+				if (maxDischargePower.value < 0) {
 					maxDischargePower.dataItem.setValue(1000)
-				} else if (!checked && maxDischargePower.value >= 0) {
+				} else if (maxDischargePower.value >= 0) {
 					maxDischargePower.dataItem.setValue(-1)
 				}
 			}

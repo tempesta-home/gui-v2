@@ -11,6 +11,7 @@ ListItem {
 
 	readonly property alias dataItem: dataItem
 	property alias checked: switchItem.checked
+	property alias checkable: switchItem.checkable
 	property alias secondaryText: secondaryLabel.text
 	property bool updateOnClick: true
 	property bool invertSourceValue
@@ -28,8 +29,6 @@ ListItem {
 				} else {
 					dataItem.setValue(c ? valueTrue : valueFalse)
 				}
-			} else {
-				switchItem.checked = c
 			}
 		}
 		clicked()
@@ -47,6 +46,7 @@ ListItem {
 		},
 		Switch {
 			id: switchItem
+
 			checked: invertSourceValue ? dataItem.value === valueFalse : dataItem.value === valueTrue
 			onClicked: root._setChecked(!checked)
 		}
