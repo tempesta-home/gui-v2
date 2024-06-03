@@ -55,8 +55,8 @@ ObjectModel {
 				autoStartStopItem.setValue(0)
 				modeItem.setValue(0)
 			} else if (index === index_on) {
-				if (autoStart.value === 0) {
-					//% "AutoStart functionality is currently disabled, enable it on the genset panel in order to start the genset from this menu."
+				if (remoteStartMode.value === 0) {
+					//% "Remote start functionality is disabled on the genset. Enable it on the genset control panel to allow the Victron system to start the genset"
 					Global.showToastNotification(VenusOS.Notification_Info, qsTrId("ac-in-genset_autostart_functionality_disabled"), 7000)
 					return
 				}
@@ -77,8 +77,8 @@ ObjectModel {
 			uid: root.startStop1Uid + "/AutoStartEnabled"
 		}
 		VeQuickItem {
-			id: autoStart
-			uid: root.bindPrefix + "/AutoStart"
+			id: remoteStartMode
+			uid: root.bindPrefix + "/RemoteStartModeEnabled"
 		}
 	}
 

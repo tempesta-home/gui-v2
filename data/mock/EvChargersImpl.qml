@@ -96,7 +96,7 @@ QtObject {
 				Global.mockDataSimulator.setMockValue(serviceUid + "/Mode", mode)
 				Global.mockDataSimulator.setMockValue(serviceUid + "/Position", 1)
 				Global.mockDataSimulator.setMockValue(serviceUid + "/StartStop", 1)
-				Global.mockDataSimulator.setMockValue(serviceUid + "/AutoStart", 1)
+				Global.mockDataSimulator.setMockValue(serviceUid + "/RemoteStartModeEnabled", 1)
 				Global.mockDataSimulator.setMockValue(serviceUid + "/EnableDisplay", 1)
 				Global.mockDataSimulator.setMockValue(serviceUid + "/MaxCurrent", maxCurrent)
 
