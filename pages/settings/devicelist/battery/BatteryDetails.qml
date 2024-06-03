@@ -90,6 +90,10 @@ QtObject {
 		VeQuickItem {
 			id: capacity
 			uid: root.bindPrefix + "/Capacity"
+		},
+		VeQuickItem {
+			id: connectionInformation
+			uid: root.bindPrefix + "/ConnectionInformation"
 		}
 	]
 }
