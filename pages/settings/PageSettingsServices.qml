@@ -26,6 +26,22 @@ Page {
 				}
 			}
 
+			// currently only POC, not yet ready
+			ListNavigationItem {
+				//% "Tailscale"
+				text: "Tailscale (remote VPN access)"
+				secondaryText: tailscale.value === 1 ? CommonWords.enabled : CommonWords.disabled
+				onClicked: {
+					Global.pageManager.pushPage("/pages/settings/PageSettingsTailscale.qml", { title: text })
+				}
+				visible: tailscale.isValid
+
+				VeQuickItem {
+					id: tailscale
+					uid: Global.systemSettings.serviceUid + "/Settings/Services/Tailscale/Enabled"
+				}
+			}
+
 			ListSwitch {
 				id: mqtt
 

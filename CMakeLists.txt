@@ -543,6 +543,7 @@ set (VENUS_QML_MODULE_SOURCES
     pages/settings/PageSettingsSystem.qml
     pages/settings/PageSettingsSystemStatus.qml
     pages/settings/PageSettingsTankPump.qml
+    pages/settings/PageSettingsTailscale.qml
     pages/settings/PageSettingsTcpIp.qml
     pages/settings/PageSettingsVecanDevice.qml
     pages/settings/PageSettingsVecanDevices.qml
@@ -1226,4 +1227,3 @@ add_custom_target(
     DEPENDS "${PROJECT_SOURCE_DIR}/src/themeobjects.h"
 )
 add_dependencies(${PROJECT_NAME} theme_parser)
-
