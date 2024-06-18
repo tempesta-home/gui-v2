@@ -167,6 +167,16 @@ bool BaseDeviceModel::removeDevice(const QString &serviceUid)
 	return false;
 }
 
+void BaseDeviceModel::intersect(const QStringList &serviceUids)
+{
+	for (int i = 0; i < m_devices.count(); ++i) {
+		const QString serviceUid = m_devices[i] ? m_devices[i]->serviceUid() : QString();
+		if (serviceUid.length() && serviceUids.indexOf(serviceUid) < 0) {
+			removeDevice(serviceUid);
+		}
+	}
+}
+
 void BaseDeviceModel::clear()
 {
 	if (count() == 0) {
