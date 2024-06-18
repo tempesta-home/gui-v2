@@ -250,14 +250,11 @@ Page {
 						? model.device.serviceUid.split("/")[1] || ""    // serviceUid = mqtt/<serviceType>/<path>
 						: model.device.serviceUid.split(".")[2] || ""    // serviceUid = dbus/com.victronenergy.<serviceType>[.suffix]/<path>
 					: ""
-			readonly property var _displayInfo: model.connected
-					? root._deviceDisplayInfo(_serviceType, model.device, model.sourceModel)
-					: null
+			readonly property var _displayInfo: root._deviceDisplayInfo(_serviceType, model.device, model.sourceModel)
 
 			text: model.cachedDeviceDescription
 			textModel: model.connected && _displayInfo ? _displayInfo.summary || [] : [ CommonWords.not_connected ]
 			down: deviceMouseArea.containsPress
-			allowed: _displayInfo !== null
 
 			CP.ColorImage {
 				parent: deviceDelegate.content
