@@ -26,11 +26,11 @@ Device {
 		uid: serviceUid + "/Status"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (valid) {
 			Global.environmentInputs.addInput(input)
 		} else {
 			Global.environmentInputs.removeInput(input)
 		}
-	}
+	})
 }

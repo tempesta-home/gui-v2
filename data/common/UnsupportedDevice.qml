@@ -9,7 +9,7 @@ import Victron.VenusOS
 Device {
 	id: unsupportedDevice
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.unsupportedDevices) {
 			if (valid) {
 				Global.unsupportedDevices.model.addDevice(unsupportedDevice)
@@ -17,5 +17,5 @@ Device {
 				Global.unsupportedDevices.model.removeDevice(unsupportedDevice)
 			}
 		}
-	}
+	})
 }

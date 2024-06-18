@@ -29,13 +29,13 @@ BaseDeviceModel {
 			}
 
 			serviceUid: model.uid
-			onValidChanged: {
+			onValidChanged: Qt.callLater(() => {
 				if (valid) {
 					root.addDevice(device)
 				} else {
 					root.removeDevice(device)
 				}
-			}
+			})
 		}
 	}
 

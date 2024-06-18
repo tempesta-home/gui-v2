@@ -18,7 +18,7 @@ QtObject {
 		Generator {
 			id: generator
 
-			onValidChanged: {
+			onValidChanged: Qt.callLater(() => {
 				if (!!Global.generators) {
 					if (valid) {
 						Global.generators.addGenerator(generator)
@@ -26,11 +26,12 @@ QtObject {
 						Global.generators.removeGenerator(generator)
 					}
 				}
-			}
+			})
 
 			Component.onCompleted: {
 				_deviceInstance.setValue(0)
 				_productName.setValue("Start/Stop generator")
+				_productId.setValue(123)
 				_state.setValue(VenusOS.Generators_State_Running)
 				_runningBy.setValue(VenusOS.Generators_RunningBy_Soc)
 				setAutoStart(true)

@@ -15,7 +15,7 @@ Device {
 		uid: charger.serviceUid + "/State"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.chargers) {
 			if (valid) {
 				Global.chargers.model.addDevice(charger)
@@ -23,5 +23,5 @@ Device {
 				Global.chargers.model.removeDevice(charger)
 			}
 		}
-	}
+	})
 }

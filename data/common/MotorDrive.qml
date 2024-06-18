@@ -15,7 +15,7 @@ Device {
 		uid: motorDrive.serviceUid + "/Motor/RPM"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.motorDrives) {
 			if (valid) {
 				Global.motorDrives.model.addDevice(motorDrive)
@@ -23,5 +23,5 @@ Device {
 				Global.motorDrives.model.removeDevice(motorDrive)
 			}
 		}
-	}
+	})
 }

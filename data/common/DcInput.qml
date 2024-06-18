@@ -23,7 +23,7 @@ DcDevice {
 		uid: input.serviceUid + "/Settings/MonitorMode"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.dcInputs) {
 			if (valid) {
 				Global.dcInputs.addInput(input)
@@ -31,7 +31,7 @@ DcDevice {
 				Global.dcInputs.removeInput(input)
 			}
 		}
-	}
+	})
 
 	function _updateTotals() {
 		if (_completed && !!Global.dcInputs) {

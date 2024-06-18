@@ -15,7 +15,7 @@ Device {
 		uid: acSystemDevice.serviceUid + "/State"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.acSystemDevices) {
 			if (valid) {
 				Global.acSystemDevices.model.addDevice(acSystemDevice)
@@ -23,5 +23,5 @@ Device {
 				Global.acSystemDevices.model.removeDevice(acSystemDevice)
 			}
 		}
-	}
+	})
 }

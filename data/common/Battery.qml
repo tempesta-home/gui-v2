@@ -42,7 +42,7 @@ Device {
 		uid: battery.serviceUid + "/TimeToGo"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.batteries) {
 			if (valid) {
 				Global.batteries.addBattery(battery)
@@ -50,5 +50,5 @@ Device {
 				Global.batteries.removeBattery(battery)
 			}
 		}
-	}
+	})
 }

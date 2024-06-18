@@ -19,7 +19,7 @@ QtObject {
 			id: generator
 
 			serviceUid: model.uid
-			onValidChanged: {
+			onValidChanged: Qt.callLater(() => {
 				if (!!Global.generators) {
 					if (valid) {
 						Global.generators.addGenerator(generator)
@@ -27,7 +27,7 @@ QtObject {
 						Global.generators.removeGenerator(generator)
 					}
 				}
-			}
+			})
 		}
 	}
 }

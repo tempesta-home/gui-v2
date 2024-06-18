@@ -44,7 +44,7 @@ Device {
 		Component.onCompleted: Qt.callLater(tank._updateMeasurements)
 	}
 
-	valid: deviceInstance >= 0 && type >= 0
+	valid: _deviceInstance.isValid && _productId.isValid && _productName.isValid && type >= 0
 	onValidChanged: Qt.callLater(tank._updateModel)
 	onTypeChanged: Qt.callLater(tank._updateModel)
 

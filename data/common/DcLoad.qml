@@ -9,7 +9,7 @@ import Victron.VenusOS
 DcDevice {
 	id: dcLoad
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.dcLoads) {
 			if (valid) {
 				Global.dcLoads.model.addDevice(dcLoad)
@@ -17,5 +17,5 @@ DcDevice {
 				Global.dcLoads.model.removeDevice(dcLoad)
 			}
 		}
-	}
+	})
 }

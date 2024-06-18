@@ -101,7 +101,7 @@ Device {
 		uid: pvInverter.serviceUid + "/Ac/Voltage"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.pvInverters) {
 			if (valid) {
 				Global.pvInverters.addInverter(pvInverter)
@@ -109,5 +109,5 @@ Device {
 				Global.pvInverters.removeInverter(pvInverter)
 			}
 		}
-	}
+	})
 }

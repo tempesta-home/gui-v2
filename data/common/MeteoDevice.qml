@@ -15,7 +15,7 @@ Device {
 		uid: meteoDevice.serviceUid + "/Irradiance"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.meteoDevices) {
 			if (valid) {
 				Global.meteoDevices.model.addDevice(meteoDevice)
@@ -23,5 +23,5 @@ Device {
 				Global.meteoDevices.model.removeDevice(meteoDevice)
 			}
 		}
-	}
+	})
 }

@@ -30,13 +30,13 @@ Page {
 
 			serviceUid: BackendConnection.serviceUidFromName(_serviceName.value || "", _serviceInstance.value || 0)
 
-			onValidChanged: {
+			onValidChanged: Qt.callLater(() => {
 				if (valid) {
 					rsDeviceModel.addDevice(rsDevice)
 				} else {
 					rsDeviceModel.removeDevice(rsDevice)
 				}
-			}
+			})
 		}
 	}
 

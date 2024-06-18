@@ -20,7 +20,7 @@ Device {
 		uid: input.serviceUid + "/State"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.digitalInputs) {
 			if (valid) {
 				Global.digitalInputs.model.addDevice(input)
@@ -28,5 +28,5 @@ Device {
 				Global.digitalInputs.model.removeDevice(input)
 			}
 		}
-	}
+	})
 }

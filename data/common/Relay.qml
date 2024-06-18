@@ -29,7 +29,7 @@ Device {
 			 : Global.systemSettings.serviceUid + "/Settings/Relay/%1/Function".arg(model.index)
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.relays) {
 			if (valid) {
 				Global.relays.addRelay(relay)
@@ -37,5 +37,5 @@ Device {
 				Global.relays.removeRelay(relay)
 			}
 		}
-	}
+	})
 }

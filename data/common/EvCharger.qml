@@ -82,7 +82,7 @@ Device {
 		uid: evCharger.serviceUid + "/Status"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.evChargers) {
 			if (valid) {
 				Global.evChargers.addCharger(evCharger)
@@ -90,5 +90,5 @@ Device {
 				Global.evChargers.removeCharger(evCharger)
 			}
 		}
-	}
+	})
 }

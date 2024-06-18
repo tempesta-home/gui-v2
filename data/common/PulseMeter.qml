@@ -15,7 +15,7 @@ Device {
 		uid: pulseMeter.serviceUid + "/Aggregate"
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.pulseMeters) {
 			if (valid) {
 				Global.pulseMeters.model.addDevice(pulseMeter)
@@ -23,5 +23,5 @@ Device {
 				Global.pulseMeters.model.removeDevice(pulseMeter)
 			}
 		}
-	}
+	})
 }

@@ -22,13 +22,13 @@ QtObject {
 
 			serviceUid: model.uid
 
-			onValidChanged: {
+			onValidChanged: Qt.callLater(() => {
 				if (valid) {
 					Global.inverterChargers.veBusDevices.addDevice(veBusDevice)
 				} else {
 					Global.inverterChargers.veBusDevices.removeDevice(veBusDevice)
 				}
-			}
+			})
 		}
 	}
 
@@ -45,13 +45,13 @@ QtObject {
 
 			serviceUid: model.uid
 
-			onValidChanged: {
+			onValidChanged: Qt.callLater(() => {
 				if (valid) {
 					Global.inverterChargers.acSystemDevices.addDevice(acSystemDevice)
 				} else {
 					Global.inverterChargers.acSystemDevices.removeDevice(acSystemDevice)
 				}
-			}
+			})
 		}
 	}
 
@@ -68,13 +68,13 @@ QtObject {
 
 			serviceUid: model.uid
 
-			onValidChanged: {
+			onValidChanged: Qt.callLater(() => {
 				if (valid) {
 					Global.inverterChargers.inverterDevices.addDevice(inverterDevice)
 				} else {
 					Global.inverterChargers.inverterDevices.removeDevice(inverterDevice)
 				}
-			}
+			})
 		}
 	}
 }

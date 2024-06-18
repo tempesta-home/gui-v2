@@ -137,7 +137,7 @@ Device {
 		}
 	}
 
-	onValidChanged: {
+	onValidChanged: Qt.callLater(() => {
 		if (!!Global.solarChargers) {
 			if (valid) {
 				Global.solarChargers.addCharger(solarCharger)
@@ -145,5 +145,5 @@ Device {
 				Global.solarChargers.removeCharger(solarCharger)
 			}
 		}
-	}
+	})
 }
