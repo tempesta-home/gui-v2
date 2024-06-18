@@ -19,13 +19,10 @@ ListModel {
 			readonly property VeQuickItem _current: VeQuickItem {
 				uid:  Global.system.serviceUid + "/Ac/ActiveIn/L" + (model.index + 1) + "/Current"
 				readonly property real currentValue: !isValid ? NaN : value
-				readonly property real clampedCurrentValue: (root._feedbackEnabled || isNaN(currentValue)) ? currentValue
-								: currentValue > 0 ? currentValue // see AcInputs.clampMeasurement()
-								: 0.0
-				onClampedCurrentValueChanged: {
+				onCurrentValueChanged: {
 					if (model.index >= 0 && model.index < root.count) {
-						setProperty(model.index, "current", clampedCurrentValue)
-						root.phaseValueChanged(model.index, "current", clampedCurrentValue)
+						setProperty(model.index, "current", currentValue)
+						root.phaseValueChanged(model.index, "current", currentValue)
 					}
 				}
 			}
@@ -33,13 +30,10 @@ ListModel {
 			readonly property VeQuickItem _power: VeQuickItem {
 				uid: Global.system.serviceUid + "/Ac/ActiveIn/L" + (model.index + 1) + "/Power"
 				readonly property real powerValue: !isValid ? NaN : value
-				readonly property real clampedPowerValue: (root._feedbackEnabled || isNaN(powerValue)) ? powerValue
-								: powerValue > 0 ? powerValue // see AcInputs.clampMeasurement().
-								: 0.0
-				onClampedPowerValueChanged: {
+				onPowerValueChanged: {
 					if (model.index >= 0 && model.index < root.count) {
-						setProperty(model.index, "power", clampedPowerValue)
-						root.phaseValueChanged(model.index, "power", clampedPowerValue)
+						setProperty(model.index, "power", powerValue)
+						root.phaseValueChanged(model.index, "power", powerValue)
 					}
 				}
 			}
