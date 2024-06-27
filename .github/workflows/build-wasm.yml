@@ -8,7 +8,7 @@ jobs:
     env:
       EMSCRIPTEN: 3.1.37
       QT_VERSION: 6.6.1
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     permissions:
       contents: write
     steps:
