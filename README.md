@@ -2,6 +2,8 @@
 
 ![image](https://github.com/victronenergy/gui-v2/assets/5200296/cbf9b7c0-6d8f-4bef-82c5-ec74230e4f87)
 
+*** FORK BY LUCA ***
+
 Venus OS is the software that runs on the Victron family of [GX monitoring devices](https://www.victronenergy.com/communication-centres), as well as RaspberryPis. gui-v2 is the next generation UI for Venus OS.
 
 gui-v2 is for the on-screen display on a GX Touch 50, 70 and Ekrano GX. And also to be used remotely in a webbrowser, aka the Victron Remote Console feature.
